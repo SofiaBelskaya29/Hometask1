@@ -1,27 +1,19 @@
-﻿/*Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+﻿/*Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
 
-14212 -> нет
-
-12821 -> да
-
-23432 -> да
+456 -> 5
+782 -> 8
+918 -> 1
 */
-
-Console.WriteLine("Введите число:");
-string number = Console.ReadLine();
-int len = number.Length;
-if (len ==5)
+int GetNumberFromRange(int start, int end)
 {
-    if (number[0] == number[4] && number[1] == number[3])
-    {
-        Console.WriteLine($"{number} - Да");
-    }
-    else
-    {
-        Console.WriteLine($"{number} - Нет");
-    }
+    int number = new Random().Next(start, end);
+    return number;
 }
-else
+int WriteSecondDigit (int number)
 {
-    Console.WriteLine($"Ошибка: {number} - не пятизначное число");
+    int result = ((number / 10)% 10);
+    return result;
 }
+int randomNumber = GetNumberFromRange(100,999);
+int numberSecond = WriteSecondDigit(randomNumber);
+Console.WriteLine($"У числа {randomNumber} второе число {numberSecond}");
